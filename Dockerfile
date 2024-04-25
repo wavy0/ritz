@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+LABEL desktop
+
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-desktop lightdm
 
 RUN rm /run/reboot-required*
