@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y lubuntu-desktop lightdm
 
-RUN rm /run/reboot-required*
+
 RUN echo "/usr/sbin/lightdm" > /etc/X11/default-display-manager
 RUN echo "\
 [LightDM]\n\
