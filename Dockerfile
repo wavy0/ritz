@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y ubuntu-desktop lightdm
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y lubuntu-desktop lightdm
 
 RUN rm /run/reboot-required*
 RUN echo "/usr/sbin/lightdm" > /etc/X11/default-display-manager
@@ -12,8 +12,9 @@ xserver-hostname=host.docker.internal\n\
 xserver-display-number=0\n\
 autologin-user=root\n\
 autologin-user-timeout=0\n\
+autologin-session=Lubuntu\n\
 " > /etc/lightdm/lightdm.conf.d/lightdm.conf
 
 ENV DISPLAY=host.docker.internal:0.0
 
-CMD service dbus start ; /usr/lib/systemd/systemd-logind & service lightdm start
+CMD service dbus start ; service lightdm start
